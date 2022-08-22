@@ -1,0 +1,15 @@
+.info-card {
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(141, 145, 145);
+  height: 150px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 22px;
+  color: rgb(10, 9, 9);
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
