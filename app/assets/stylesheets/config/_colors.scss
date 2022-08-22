@@ -1,10 +1,12 @@
 // Define variables for your color scheme
 
-// For example:
-$red: #FD1015;
-$blue: #0D6EFD;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
+/*   Main colour scheme:  */
+
+/* Text colours */
+$title-colour_main: #3A5A40;
+$title-colour_light: #344E41;
+$title-colour_dark: #588157;
+
+/* Background-colours */
+$background-colour_main: #DAD7CD;
+$background-colour_green: #A3B18A;
