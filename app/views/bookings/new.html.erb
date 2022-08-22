@@ -1,6 +1,7 @@
-<h1>Booking <%= @bicycle.title %></h1>
-
+<div>
+<p><%= @bicycle.price_per_day %>/Day</p>
 <%= simple_form_for [@bicycle, @booking] do |f| %>
   <%= f.input :start_date %> <%= f.input :end_date %>
   <%= f.submit %>
 <% end %>
+</div>
