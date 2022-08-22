@@ -1,15 +1,32 @@
 .info-card {
-  background-size: cover;
-  background-position: center;
-  background-color: rgb(141, 145, 145);
-  height: 150px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  display: flex;
   align-items: center;
+  background-color: $background-colour_green;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('info_card_image.jpg');
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  color: $title-colour_light;
+  display: flex;
+  height: 25vw;
   justify-content: space-around;
-  font-size: 22px;
-  color: rgb(10, 9, 9);
-  font-weight: bold;
-  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  padding: 15px 20px;
+  text-align: center;
+  width: 25vw;
+  font-size: 1rem;
+}
+
+.info-card h3 {
+  margin-bottom: 30px;
+  font-weight: bolder;
+}
+
+.info-card i {
+  font-size: 2rem;
+}
+
+.info-card .card-text {
+  margin-top: 20px;
+  font-weight: normal;
+  font-size: 1rem;
 }
