@@ -12,6 +12,7 @@ class Booking < ApplicationRecord
     # Calculate the duration of the rental
     (end_date - start_date).to_i
   end
+  
   def total_price
     # Multiply duration of rental by the bicycle's price per day
     duration * bicycle.price_per_day
