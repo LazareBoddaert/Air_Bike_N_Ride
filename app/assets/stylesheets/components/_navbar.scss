@@ -1,6 +1,17 @@
-.navbar {
-  background-color: $background-colour_green;
-  position: sticky;
-  top: 0;
-  z-index: 2;
+// .navbar {
+  // }
+
+  .navbar {
+    background-color: $background-colour_green;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+}
+
+.navbar .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar .navbar-brand img {
+  width: 40px;
 }
