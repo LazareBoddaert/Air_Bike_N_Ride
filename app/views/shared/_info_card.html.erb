@@ -1,11 +1,31 @@
 <div class="container">
-  <%= link_to bicycles_path do %>
-  <div class="card info-card">
-    <div class="all-bike-card">
-      <h3 class="card-title">See all bicycles</h3>
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <p class="card-text">Browse our selection of bicycles to rent</p>
+  <div class="home-card">
+    <%= link_to bicycles_path do %>
+    <div class="info-card">
+      <div class="all-bike-card">
+        <h3 class="card-title">See all bicycles</h3>
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <p class="card-text">Browse our selection of bicycles to rent</p>
+      </div>
     </div>
+    <% end %>
+    <%#= link_to chemin_pour_louer_son_velo do %>
+      <div class="info-card">
+        <div class="rent-bike-card">
+          <h3 class="card-title">Rent your bicycle</h3>
+          <i class="fa-solid fa-wallet"></i>
+          <p class="card-text">Click here to rent your bike</p>
+        </div>
+      </div>
+    <%# end %>
+    <%#= link_to chemin_vers_les_velos_les_mieux_notés do %>
+      <div class="info-card">
+        <div class="best-bikes-card">
+          <h3 class="card-title">See the best bicycles to rent</h3>
+          <i class="fa-solid fa-ranking-star"></i>
+          <p class="card-text">Find the best ranked bicycles near your location</p>
+        </div>
+      </div>
+    <%# end %>
   </div>
-  <% end %>
 </div>

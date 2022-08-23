@@ -1,4 +1,5 @@
 class BicyclesController < ApplicationController
+
   before_action :set_bicycle, only: [:show, :edit, :update, :destroy]
 
   def index
