@@ -43,3 +43,5 @@ bike2.save!
 #   price_per_day: "5",
 #   size: ""
 # }])
+
+# test
