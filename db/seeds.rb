@@ -8,8 +8,8 @@
 
 Bicycle.destroy_all
 User.destroy_all
-user1 = User.create!(email: "test@test.fr", password: '123456')
-user2 = User.create!(email: "test1@test.fr", password: '123456')
+user1 = User.create!(username: "user1" email: "test@test.fr", password: '123456')
+user2 = User.create!(username: "user2" email: "test1@test.fr", password: '123456')
 
 bike1 = Bicycle.new(title: "vélo tout chemin", category: "VTC", price_per_day: "10", size: "60", photo: 'vtc_seed_image.jpg')
 bike1.user = user1
