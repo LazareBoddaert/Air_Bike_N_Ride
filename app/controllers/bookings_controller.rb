@@ -25,7 +25,10 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    authorize @booking
     @booking.destroy
+
+    redirect_to bookings_path, status: :see_other
   end
 
   private
@@ -36,5 +39,9 @@ class BookingsController < ApplicationController
 
   def set_bicycle
     @bicycle = Bicycle.find(params[:bicycle_id])
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 end
