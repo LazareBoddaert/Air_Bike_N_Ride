@@ -1,39 +1,113 @@
-<div class="container mb-5">
+<div class="container mt-2 mb-5">
   <div class="row">
-    <div class="col-8 mx-auto">
+    <div class="col-12 text-center">
       <h1>Your Booking for <strong><%= @booking.bicycle.title %></strong></h1>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-6">
+    <div class="col-5 d-flex align-items-center">
       <%= image_tag @booking.bicycle.photo, class: "img-fluid" %>
     </div>
-      <div class="col-6">
-        <div>
-          <h4>Bicycle details:</h4>
-          <ul>
-            <li>Category: <%= @booking.bicycle.category %></li>
-            <li>Size: <%= @booking.bicycle.size %></li>
-            <li>Price per day: <%= @booking.bicycle.price_per_day %></li>
-          </ul>
-          <h6>Description:</h6>
-          <p><%= @booking.bicycle.description %></p>
+
+      <div class="col-7">
+
+        <div class="card_booking-details">
+          <div class="row">
+            <div class="col-5">
+              <h6>Details</h6>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>
+                    <i class="fa-solid fa-person-biking"></i>
+                    <span class="text-muted">Type:</span>
+                  </span>
+                  <%= @booking.bicycle.category %>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>
+                    <i class="fa-solid fa-ruler-combined"></i>
+                    <span class="text-muted">Size:</span>
+                  </span>
+                  <span>
+                    <%= @booking.bicycle.size %>
+                    <span class="text-muted">cm</span>
+                  </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>
+                    <i class="fa-solid fa-money-bill-1"></i>
+                    <span class="text-muted">Daily fee:</span>
+                  </span>
+                  <span>
+                    <%= @booking.bicycle.price_per_day.to_i %>
+                    <i class="fa-solid fa-euro-sign"></i>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-7">
+              <h6>Description</h6>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><%= @booking.bicycle.description %></li>
+              </ul>
+              <h6 class="mt-2">Address</h6>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Address</li>
+              </ul>
+            </div>
+          </div>
         </div>
+
+        <div class="">
+          <div class="card_booking-details">
+            <h3>Booking Details <span class="fs-6 text-muted">(ID: <%= @booking.id %>)</span></h3>
+              <div class="row">
+                <div class="col-5">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between">
+                      <span>
+                        <i class="fa-solid fa-address-card"></i>
+                        <span class="text-muted">Owner:</span>
+                      </span>
+                      <%= @booking.bicycle.user.username %>
+                      </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                      <% if @booking.confirmed %>
+                        <span>
+                          <i class="fa-solid fa-circle-check"></i>
+                          <span class="text-muted">Status:</span>
+                        </span>
+                        <span>Ride confirmed!</span>
+                      <% else %>
+                        <span>
+                          <i class="fa-solid fa-hourglass"></i>
+                          <span class="text-muted">Status:</span>
+                        </span>
+                        <span>Pending</span>
+                      <% end %>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-7">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between">
+                      <span>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span class="text-muted">Dates:</span>
+                      </span>
+                      <span>
+                        <%= @booking.start_date.strftime('%e %b') %> to <%= @booking.end_date.strftime('%e %b') %>
+                        <span class="text-muted">(<%= pluralize(@booking.duration, "day") %>)</span>
+                      </span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between"><i class="fa-solid fa-calculator"></i> <span><%= @booking.total_price.to_i %> <i class="fa-solid fa-euro-sign"></i></span></li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+        </div>
+
       </div>
   </div>
-
-  <div class="row mb-5">
-    <div class="col-12 bg-light">
-      <h3>Booking Details <span class="fs-6 text-muted">(ID: <%= @booking.id %>)</span></h3>
-        <% if @booking.bicycle.user.username %>
-          <p>Owner: <%= @booking.bicycle.user.username %></p>
-          <p>Total: <%= @booking.total_price %></p>
-          <p>Booking Status: <%= @booking.confirmed ? "Ready to go!" : "Pending" %> </p>
-          <p>From: <%= @booking.start_date %> , Until:      <%= @booking.end_date %> <span class="text-muted">(<%= @booking.duration %> day)</span></p>
-        <% end %>
-
-    </div>
-  </div>
-
 </div>
