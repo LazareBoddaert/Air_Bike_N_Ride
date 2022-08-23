@@ -1,9 +1,9 @@
 class BicyclesController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_bicycle, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bicycles = Bicycle.all
+    @bicycles = policy_scope(Bicycle)
   end
 
   def show
