@@ -1,15 +1,17 @@
 class BicyclesController < ApplicationController
+  before_action :set_bicycle, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bicycles = Bicycle.all
+    @bicycles = policy_scope(Bicycle)
   end
 
   def show
-    @bicycle = Bicycle.find(params[:id])
+    authorize @bicycle
   end
 
   def new
     @bicycle = Bicycle.new
+    authorize @bicycle
   end
 
   def create
@@ -19,22 +21,23 @@ class BicyclesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @bicycle
   end
 
   def edit
-    @bicycle = Bicycle.find(params[:id])
+    authorize @bicycle
   end
 
   def update
-    @bicycle = Bicycle.find(params[:id])
     @bicycle.update(bicycle_params)
     redirect_to bicycle_path(@bicycle)
+    authorize @bicycle
   end
 
   def destroy
-    @bicycle = Bicycle.find(params[:id])
     @bicycle.destroy
     redirect_to bicycles_path, notice: "Rental deleted", status: :see_other
+    authorize @bicycle
   end
 
   private
