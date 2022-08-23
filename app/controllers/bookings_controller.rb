@@ -22,6 +22,6 @@ class BookingsController < ApplicationController
   end
 
   def set_bicycle
-    @bicycle = Bicycle.find(params[:id])
+    @bicycle = Bicycle.find(params[:bicycle_id])
   end
 end
