@@ -7,10 +7,12 @@ class Booking < ApplicationRecord
   # start_date must be after today's date
   validates :start_date, comparison: { greater_than: Date.today }
 
-  def total_price
-    # Calculate the duration of the rental
-    duration = (end_date - start_date).to_i
 
+  def duration
+    # Calculate the duration of the rental
+    (end_date - start_date).to_i
+  end
+  def total_price
     # Multiply duration of rental by the bicycle's price per day
     duration * bicycle.price_per_day
   end
