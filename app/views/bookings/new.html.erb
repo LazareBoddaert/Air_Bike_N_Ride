@@ -1,11 +1,5 @@
 <div class="container">
   <h1>Rent: <%= @bicycle.title %></h1>
-  <%= simple_form_for [@bicycle, @booking] do |f| %>
-    <div class="d-flex">
-      <%= f.input :start_date, as: :date, label: "From", html5: true %>
-      <%= f.input :end_date, as: :date, label: "Until", html5: true %>
-    </div>
-    <%= f.submit %>
-  <% end %>
+  <%= render "form" %>
   <p><%= @bicycle.price_per_day %> €/Day</p>
 </div>
