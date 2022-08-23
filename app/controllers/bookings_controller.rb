@@ -1,17 +1,24 @@
 class BookingsController < ApplicationController
   before_action :set_bicycle, only: %i[new create]
 
+  def show
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
+
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.bicycle = @bicycle
     @booking.user = current_user
+    authorize @booking
 
     if @booking.save
-      redirect_to bicycle_booking_path(params[:bicycle_id])
+      redirect_to bicycle_booking_path(@bicycle, @booking)
     else
       render :new, status: :unprocessable_entity
     end
