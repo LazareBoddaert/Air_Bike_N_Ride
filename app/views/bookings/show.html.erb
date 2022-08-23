@@ -1,16 +1,49 @@
 <div class="container">
   <div class="row">
+    <div class="col-8 mx-auto">
+      <h1>Your Booking for <strong><%= @booking.bicycle.title %></strong></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <%= image_tag @booking.bicycle.photo, class: "img-fluid" %>
+    </div>
+      <div class="col-6">
+        <div>
+          <h4>Bicycle details:</h4>
+          <ul>
+            <li>Category: <%= @booking.bicycle.category %></li>
+            <li>Size: <%= @booking.bicycle.size %></li>
+            <li>Price per day: <%= @booking.bicycle.price_per_day %></li>
+          </ul>
+          <h6>Description:</h6>
+          <p><%= @booking.bicycle.description %></p>
+        </div>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 bg-light">
+      <h3>Booking Details <span class="fs-6 text-muted">(ID: <%= @booking.id %>)</span></h3>
+        <% if @booking.bicycle.user.username %>
+          <p>Owner: <%= @booking.bicycle.user.username %></p>
+          <p>Total: <%= @booking.bicycle.price_per_day %> x <%= @booking.duration %> = <%= @booking.total_price %></p>
+          <p>Booking Status: <%= @booking.confirmed ? "<i class='fa-solid fa-circle-check'></i> Ready to go! <i class='fa-solid fa-person-biking'></i>" : "<i class='fa-solid fa-hourglass'></i> Pending" %> </p>
+
+        <% end %>
+
+    </div>
+  </div>
+
+
+
+  <div class="row">
     <div class="col-12">
       <h1>Booking No. <%= @booking.id %></h1>
       <div class="bicycle-details">
         <ul>
-          <%= @booking.bicycle.title %>
-          <%= @booking.bicycle.category %>
-          <%= @booking.bicycle.description %>
-          <%= @booking.bicycle.size %>
-          <%= @booking.bicycle.price_per_day %>
-          <%= @booking.bicycle.photo %>
-          <%= @booking.bicycle.user_id %>
+          <%= @booking.total_price %>
         </ul>
       </div>
 
