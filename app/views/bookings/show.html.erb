@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mb-5">
   <div class="row">
     <div class="col-8 mx-auto">
       <h1>Your Booking for <strong><%= @booking.bicycle.title %></strong></h1>
@@ -23,39 +23,17 @@
       </div>
   </div>
 
-  <div class="row">
+  <div class="row mb-5">
     <div class="col-12 bg-light">
       <h3>Booking Details <span class="fs-6 text-muted">(ID: <%= @booking.id %>)</span></h3>
         <% if @booking.bicycle.user.username %>
           <p>Owner: <%= @booking.bicycle.user.username %></p>
-          <p>Total: <%= @booking.bicycle.price_per_day %> x <%= @booking.duration %> = <%= @booking.total_price %></p>
-          <p>Booking Status: <%= @booking.confirmed ? "<i class='fa-solid fa-circle-check'></i> Ready to go! <i class='fa-solid fa-person-biking'></i>" : "<i class='fa-solid fa-hourglass'></i> Pending" %> </p>
-
+          <p>Total: <%= @booking.total_price %></p>
+          <p>Booking Status: <%= @booking.confirmed ? "Ready to go!" : "Pending" %> </p>
+          <p>From: <%= @booking.start_date %> , Until:      <%= @booking.end_date %> <span class="text-muted">(<%= @booking.duration %> day)</span></p>
         <% end %>
 
     </div>
   </div>
 
-
-
-  <div class="row">
-    <div class="col-12">
-      <h1>Booking No. <%= @booking.id %></h1>
-      <div class="bicycle-details">
-        <ul>
-          <%= @booking.total_price %>
-        </ul>
-      </div>
-
-      <div class="booking-details">
-        <ul>
-          <%= @booking.start_date %>
-          <%= @booking.end_date %>
-          <div class="">
-            <%= @booking.total_price %>
-          </div>
-        </ul>
-      </div>
-    </div>
-  </div>
 </div>
