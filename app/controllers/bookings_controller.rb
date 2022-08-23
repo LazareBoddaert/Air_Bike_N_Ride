@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
   before_action :set_bicycle, only: %i[new create]
+  before_action :set_booking, only: %i[show destroy]
 
   def show
-    @booking = Booking.find(params[:id])
     authorize @booking
   end
 
@@ -22,6 +22,10 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @booking.destroy
   end
 
   private
