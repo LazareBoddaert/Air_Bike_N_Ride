@@ -11,11 +11,11 @@ User.destroy_all
 user1 = User.create!(email: "test@test.fr", password: '123456')
 user2 = User.create!(email: "test1@test.fr", password: '123456')
 
-bike1 = Bicycle.new(title: "vélo tout chemin", category: "VTC", price_per_day: "10", size: "60")
+bike1 = Bicycle.new(title: "vélo tout chemin", category: "VTC", price_per_day: "10", size: "60", photo: 'vtc_seed_image.jpg')
 bike1.user = user1
 bike1.save!
 
-bike2 = Bicycle.new(title: "tandem", category: "tandem", price_per_day: "20", size: "55")
+bike2 = Bicycle.new(title: "tandem", category: "tandem", price_per_day: "20", size: "55", photo: 'tandem_seed_image.jpg')
 bike2.user = user2
 bike2.save!
 
