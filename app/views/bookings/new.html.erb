@@ -1,7 +1,9 @@
-<div>
-<p><%= @bicycle.price_per_day %> €/Day</p>
-<%= simple_form_for [@bicycle, @booking] do |f| %>
-  <%= f.input :start_date %> <%= f.input :end_date %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <h1>Book: <%= @bicycle.title %></h1>
+  <%= simple_form_for [@bicycle, @booking] do |f| %>
+    <%= f.input :start_date, as: :date, html5: true %>
+    <%= f.input :end_date, as: :date, html5: true %>
+    <%= f.submit %>
+  <% end %>
+  <p><%= @bicycle.price_per_day %> €/Day</p>
 </div>
