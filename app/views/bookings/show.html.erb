@@ -10,7 +10,7 @@
           <%= @booking.bicycle.size %>
           <%= @booking.bicycle.price_per_day %>
           <%= @booking.bicycle.photo %>
-          <%= @booking.bicycle.user_id %> <% # owner %>
+          <%= @booking.bicycle.user_id %>
         </ul>
       </div>
 
@@ -18,7 +18,9 @@
         <ul>
           <%= @booking.start_date %>
           <%= @booking.end_date %>
-          <%= @booking.total_price %> <% #code this in the model %>
+          <div class="">
+            <%= @booking.total_price %>
+          </div>
         </ul>
       </div>
     </div>
