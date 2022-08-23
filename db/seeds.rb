@@ -6,19 +6,40 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-puts "making bicycle"
-bicycle = Bicycle.new(
-  title: "Test",
-  category: 'enfant',
-  description: "A Test bicycle",
-  price_per_day: 50,
-  size: 20,
-  photo: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-)
+Bicycle.destroy_all
+User.destroy_all
+user1 = User.create!(email: "test@test.fr", password: '123456')
+user2 = User.create!(email: "test1@test.fr", password: '123456')
 
-puts "adding user"
-u = User.find(1)
-bicycle.user = u
+bike1 = Bicycle.new(title: "vélo tout chemin", category: "VTC", price_per_day: "10", size: "60")
+bike1.user = user1
+bike1.save!
 
-puts "saving bicycle"
-bicycle.save!
+bike2 = Bicycle.new(title: "tandem", category: "tandem", price_per_day: "20", size: "55")
+bike2.user = user2
+bike2.save!
+
+#   title: "vélo tout chemin",
+#   category: "VTC",
+#   price_per_day: "10",
+#   size: "60"
+# },
+# {
+#   title: "vélo utiltaire",
+#   category: "cargo",
+#   price_per_day: "20",
+#   size: "54"
+# },
+# {
+#   title: "vélo de ville",
+#   category: "ville",
+#   price_per_day: "10",
+#   size: "56"
+# },
+
+# {
+#   title: "vélo enfant",
+#   category: "enfant",
+#   price_per_day: "5",
+#   size: ""
+# }])
