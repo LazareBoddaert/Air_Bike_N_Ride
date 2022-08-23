@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Booking No. <%= @booking.id %></h1>
+      <div class="bicycle-details">
+        <ul>
+          <%= @booking.bicycle.title %>
+          <%= @booking.bicycle.category %>
+          <%= @booking.bicycle.description %>
+          <%= @booking.bicycle.size %>
+          <%= @booking.bicycle.price_per_day %>
+          <%= @booking.bicycle.photo %>
+          <%= @booking.bicycle.user_id %>
+        </ul>
+      </div>
+
+      <div class="booking-details">
+        <ul>
+          <%= @booking.start_date %>
+          <%= @booking.end_date %>
+          <div class="">
+            <%= @booking.total_price %>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
