@@ -1,7 +1,10 @@
-<h1><%= @bicycle.title %></h1>
+<div class='show'>
+  <h1><%= @bicycle.title %></h1>
 
+  <p>Category : <%= @bicycle.category %></p>
+  <p>Size : <%= @bicycle.size %>cm</p>
+  <p>Price : <%= @bicycle.price_per_day %> €/day</p>
+  <p>Description : <%= @bicycle.description %></p>
 
-<p><%= @bicycle.category %></p>
-<p><%= @bicycle.description %></p>
-<p>Size :<%= @bicycle.size %></p>
-<p>Price :<%= @bicycle.price_per_day %>€/day</p>
+  <%= link_to "Book it!", new_bicycle_booking_path(@bicycle), class: 'book btn btn-primary' %>
+</div>
