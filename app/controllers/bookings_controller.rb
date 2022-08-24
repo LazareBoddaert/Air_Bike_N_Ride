@@ -1,8 +1,12 @@
 class BookingsController < ApplicationController
   before_action :set_bicycle, only: %i[new create]
+  before_action :set_booking, only: %i[show destroy]
+
+  def index
+    @bookings = policy_scope(Booking)
+  end
 
   def show
-    @booking = Booking.find(params[:id])
     authorize @booking
   end
 
@@ -18,10 +22,19 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.save
+      flash[:notice] = "Booking Created"
       redirect_to bicycle_booking_path(@bicycle, @booking)
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    authorize @booking
+    @booking.destroy
+
+    flash[:notice] = "Booking Cancelled"
+    redirect_to bookings_path, status: :see_other
   end
 
   private
@@ -32,5 +45,9 @@ class BookingsController < ApplicationController
 
   def set_bicycle
     @bicycle = Bicycle.find(params[:bicycle_id])
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 end

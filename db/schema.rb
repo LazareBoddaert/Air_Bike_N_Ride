@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_22_103215) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_23_145242) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,8 +34,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_22_103215) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "confirmed", default: false
     t.index ["bicycle_id"], name: "index_bookings_on_bicycle_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "user_id", null: false
+    t.bigint "bicycle_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bicycle_id"], name: "index_reviews_on_bicycle_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,4 +66,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_22_103215) do
   add_foreign_key "bicycles", "users"
   add_foreign_key "bookings", "bicycles"
   add_foreign_key "bookings", "users"
+  add_foreign_key "reviews", "bicycles"
+  add_foreign_key "reviews", "users"
 end
