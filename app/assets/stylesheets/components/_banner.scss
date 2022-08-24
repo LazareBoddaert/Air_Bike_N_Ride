@@ -25,3 +25,8 @@
   color: white;
   border-radius: $border-radius
 }
+
+.banner button:hover :active {
+  background-color: #2349b8a6;
+  border-color: #2349b8;
+}

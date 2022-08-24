@@ -2,6 +2,8 @@
   <div class="container">
     <h1>Air BikeNRide brings bicycles to urban adventurers</h1>
     <p>Get out there and explore!</p>
-    <button class="btn btn-info">See some rides</button>
+    <%= link_to bicycles_path do %>
+      <button class="btn btn-primary">See some rides</button>
+    <% end %>
   </div>
 </div>
