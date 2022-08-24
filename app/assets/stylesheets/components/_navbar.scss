@@ -1,11 +1,8 @@
-// .navbar {
-  // }
-
-  .navbar {
-    background-color: $background-colour_green;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
+.navbar {
+  background-color: $background-colour_green;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
 }
 
 .navbar .navbar-collapse {
