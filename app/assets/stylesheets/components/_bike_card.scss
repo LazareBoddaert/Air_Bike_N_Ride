@@ -5,7 +5,7 @@
   grid-gap: 20px;
   max-width: 1300px;
   width: 90%;
-  align-items: center;
+  justify-items: center;
   justify-content: space-between;
   margin: 30px auto;
   padding-bottom: 50px;
@@ -17,28 +17,28 @@
   grid-row: auto;
   grid-column: auto;
   align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
   margin: 0;
-  padding: 0;
-  height: 300px;
+  padding: 0 0 5px 0;
+  height: 350px;
   width: 250px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  color: $title-colour_dark;
+  background-color: $background-colour_main;
 
-  .card-image {
-    height: 50%;
+  .card-image img {
+    height: 200px;
+    max-height: 50%;
     width: 100%;
-    vertical-align: middle;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
     border-radius: 5px;
     overflow: hidden;
     position: relative;
+    object-fit: cover;
   }
-  .card-image img{
-    object-fit: contain;
-  }
+
   .card-content {
     flex: 0 0 250px;
     flex-direction: column;
@@ -52,10 +52,6 @@
     justify-content: center;
     position: relative;
   }
-  .card-category {
-
-    // padding-bottom: 25px;
-  }
   .card-description {
     position: relative;
     padding-top: 10px;
@@ -66,18 +62,16 @@
     padding-bottom: 0;
     margin-bottom: 0;
   }
-  .card-price {
-    position: relative;
-    // bottom: 5px;
-    // left: 5px;
-    text-align: right;
-  }
   .card-size {
     position: relative;
-    // bottom: 5px;
-    // right: 5px;
     text-align: right;
   }
+  .card-price {
+    position: relative;
+    text-align: right;
+    margin-bottom: 5px;
+  }
+
   i {
     display: block;
     text-align: right;
