@@ -1,0 +1,19 @@
+<main class="all-bikes">
+  <% @bicycles.each do |bicycle| %>
+    <%= link_to bicycle do %>
+      <div class="bike-cards">
+        <div class="card-image"><%= image_tag bicycle.photo %></div>
+        <div class="card-content">
+          <h3 class="card-title"><%= bicycle.title %></h3>
+          <ul class="list-inline bike-price-size">
+            <li class="card-category list-inline-item"><%= bicycle.category %></li>
+            <li class="card-size list-inline-item"><%= bicycle.size %> cm</li>
+          </ul>
+          <div class="card-description"><%= bicycle.description %></div>
+          <i class="fa-solid fa-euro-sign">
+          <span class="card-price"><%= bicycle.price_per_day %></span></i>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</main>
