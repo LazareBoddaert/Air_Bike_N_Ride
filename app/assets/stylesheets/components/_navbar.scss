@@ -3,14 +3,12 @@
   justify-content: space-between;
   position: sticky;
   top: 0;
+  z-index: 5;
+  max-height: 20vh;
 }
 
 .navbar .navbar-collapse {
   flex-grow: 0;
-}
-
-.navbar .navbar-brand img {
-  width: 40px;
 }
 
 #btn-search {
