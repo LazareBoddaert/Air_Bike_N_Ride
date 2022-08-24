@@ -22,6 +22,7 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.save
+      flash[:notice] = "Booking Created"
       redirect_to bicycle_booking_path(@bicycle, @booking)
     else
       render :new, status: :unprocessable_entity
@@ -32,6 +33,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.destroy
 
+    flash[:notice] = "Booking Cancelled"
     redirect_to bookings_path, status: :see_other
   end
 
