@@ -1,14 +1,33 @@
 <div class="container">
-  <h1>Bookings Index</h1>
-  <% @bookings.each do |booking| %>
-    <div class="bg-light">
-      <p><%= booking.bicycle.title %></p>
-      <p><%= booking.start_date %></p>
-      <p><%= booking.end_date %></p>
-      <p><%= booking.total_price %></p>
-      <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>
-          <button class="btn btn-danger">Delete</button>
+  <h1 class="text-center">Bookings</h1>
+    <div class="row mt-3 gx-5">
+      <div class="col-6">
+        <h3>Your Rentals</h3>
+        <% @bookings.each do |booking| %>
+          <div class="card_booking-index mb-2">
+            <%= image_tag booking.bicycle.photo %>
+            <div class="card_booking-index-infos">
+              <h2><%= booking.bicycle.title %></h2>
+              <p>
+                <%= booking.start_date.strftime('%e %b') %> to <%= booking.end_date.strftime('%e %b') %>
+                <span class="text-muted">(<%= pluralize(booking.duration, "day") %>)</span>
+              </p>
+              <p><%= booking.total_price.to_i %> <i class="fa-solid fa-euro-sign"></i></p>
+            </div>
+            <%= link_to bicycle_booking_path(booking.bicycle, booking) do  %>
+              <button class="btn btn-primary fs-4"><i class="fa-solid fa-circle-info"></i></button>
+            <% end %>
+            <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>
+              <button class="btn btn-danger fs-4"><i class="fa-solid fa-xmark"></i></button>
+            <% end %>
+          </div>
         <% end %>
+      </div>
+
+      <div class="col-6">
+        <h3>Your Bikes' Rentals</h3>
+        <p class="text-muted">No rentals yet <i class="fa-solid fa-face-sad-tear"></i></p>
+      </div>
+
     </div>
-  <% end %>
 </div>
