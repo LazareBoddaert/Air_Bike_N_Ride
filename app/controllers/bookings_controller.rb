@@ -1,12 +1,12 @@
 class BookingsController < ApplicationController
   before_action :set_bicycle, only: %i[new create]
+  before_action :set_booking, only: %i[show destroy]
 
   def index
     @bookings = policy_scope(Booking)
   end
 
   def show
-    @booking = Booking.find(params[:id])
     authorize @booking
   end
 
@@ -28,6 +28,13 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    authorize @booking
+    @booking.destroy
+
+    redirect_to bookings_path, status: :see_other
+  end
+
   private
 
   def booking_params
@@ -36,5 +43,9 @@ class BookingsController < ApplicationController
 
   def set_bicycle
     @bicycle = Bicycle.find(params[:bicycle_id])
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 end
