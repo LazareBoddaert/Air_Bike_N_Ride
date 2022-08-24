@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Bookings Index</h1>
+  <% @bookings.each do |booking| %>
+    <div class="bg-light">
+      <p><%= booking.bicycle.title %></p>
+      <p><%= booking.start_date %></p>
+      <p><%= booking.end_date %></p>
+      <p><%= booking.total_price %></p>
+      <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>
+          <button class="btn btn-danger">Delete</button>
+        <% end %>
+    </div>
+  <% end %>
+</div>

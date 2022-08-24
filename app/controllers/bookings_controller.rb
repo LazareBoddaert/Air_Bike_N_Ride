@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_bicycle, only: %i[new create]
 
+  def index
+    @bookings = policy_scope(Booking)
+  end
+
   def show
     @booking = Booking.find(params[:id])
     authorize @booking
