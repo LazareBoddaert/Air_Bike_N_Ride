@@ -1,6 +1,6 @@
 class BicyclesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_bicycle, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_bicycle, only: %i[show edit update destroy]
 
   def index
     @bicycles = policy_scope(Bicycle)
@@ -20,6 +20,7 @@ class BicyclesController < ApplicationController
 
   def create
     @bicycle = Bicycle.new(bicycle_params)
+    @bicycle.user_id = current_user.id
     if @bicycle.save
       redirect_to bicycle_path(@bicycle)
     else
