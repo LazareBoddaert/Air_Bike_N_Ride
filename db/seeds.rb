@@ -111,11 +111,10 @@ bike7 = Bicycle.new(
   description: "Carry anything, anywhere! Need to make some deliveries or set up a rolling soud system? You've found what you need",
   price_per_day: "55",
   size: "70",
-  photo: 'https://bikepacking.com/wp-content/uploads/2022/03/cargo-doggo-omnium-34.jpg',
   address: "45 Avenue René Coty, 75014 Paris"
 )
-file = URI.open("")
-bike7.photo.attach(io: file, filename: "bike1.jpg", content_type: "image/jpg")
+file = URI.open("https://bikepacking.com/wp-content/uploads/2022/03/cargo-doggo-omnium-34.jpg")
+bike7.photo.attach(io: file, filename: "bike3.jpg", content_type: "image/jpg")
 bike7.user = user7
 bike7.save!
 
@@ -126,11 +125,10 @@ bike8 = Bicycle.new(
   description: "A real classic, who doesn't want to ride this blast from the past.",
   price_per_day: "35",
   size: "70",
-  photo: 'https://images.unsplash.com/photo-1595726504173-29ed8ce3bce0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8b2xkJTIwYmljeWNsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60',
   address: "20 Rue Cujas, 75005 Paris"
 )
-file = URI.open("")
-bike8.photo.attach(io: file, filename: "bike1.jpg", content_type: "image/jpg")
+file = URI.open("https://images.unsplash.com/photo-1595726504173-29ed8ce3bce0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8b2xkJTIwYmljeWNsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60")
+bike8.photo.attach(io: file, filename: "bike4.jpg", content_type: "image/jpg")
 bike8.user = user8
 bike8.save!
 
@@ -139,11 +137,10 @@ bike9 = Bicycle.new(
   description: "Take the whole family out on one set of wheels with this spacious bakfiets style bicycle",
   price_per_day: "75",
   size: "50",
-  photo: 'https://images.unsplash.com/photo-1556538628-451736d0e2c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
   address: "37 Rue des Archives, 75004"
 )
-file = URI.open("")
-bike9.photo.attach(io: file, filename: "bike1.jpg", content_type: "image/jpg")
+file = URI.open("https://images.unsplash.com/photo-1556538628-451736d0e2c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80")
+bike9.photo.attach(io: file, filename: "bike5.jpg", content_type: "image/jpg")
 bike9.user = user9
 bike9.save!
 
@@ -153,10 +150,9 @@ bike10 = Bicycle.new(
   description: "ATTENTION: I operate on a bring your own wheels policy. Saddle available on request (supplement 10 eur)",
   price_per_day: "60",
   size: "40",
-  photo: 'https://images.unsplash.com/photo-1528732942118-fcc0881d7ba7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
   address: "55 Rue du Faubourg Saint-Honoré, 75008 Paris"
 )
-file = URI.open("")
-bike10.photo.attach(io: file, filename: "bike1.jpg", content_type: "image/jpg")
+file = URI.open("https://images.unsplash.com/photo-1528732942118-fcc0881d7ba7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80")
+bike10.photo.attach(io: file, filename: "bike6.jpg", content_type: "image/jpg")
 bike10.user = user10
 bike10.save!
