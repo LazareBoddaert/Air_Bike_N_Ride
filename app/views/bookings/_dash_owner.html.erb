@@ -3,8 +3,14 @@
     <% if @bicycles.length > 0 %>
       <% @bicycles.each do |booking| %>
       <div class="col-4 mb-3">
+      <% if booking.cancelled %>
+        <div class="card owner_card cancelled">
+      <% elsif booking.confirmed %>
+        <div class="card owner_card confirmed">
+      <% else %>
         <div class="card owner_card">
-          <%= image_tag booking.bicycle.photo %>
+      <% end %>
+          <%= image_tag booking.bicycle.photo, class:"mb-2" %>
           <div class="text-center">
             <h4><%= booking.bicycle.title %></h4>
             <p><%= booking.start_date.strftime('%e %b') %> to <%= booking.end_date.strftime('%e %b') %></p>
@@ -12,10 +18,13 @@
 
               <p><i class="fa-solid fa-check-double"></i> Ready to Ride!</p>
 
-              <%= link_to root_path, class: "fs-2" do %>
+              <%= link_to "/cancel/#{booking.id}", class: "fs-2" do %>
                   <i class="fa-solid fa-rectangle-xmark"></i>
                 <% end %>
 
+            <% elsif booking.cancelled %>
+              <i class="fa-solid fa-ban"></i>
+              <p>Cancelled</p>
             <% else %>
               <p><i class="fa-solid fa-spinner"></i> Ride requested</p>
 
@@ -24,7 +33,7 @@
                   <i class="fa-solid fa-square-check"></i>
                 <% end %>
 
-                <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "fs-2" do %>
+                <%= link_to "/cancel/#{booking.id}", class: "fs-2" do %>
                   <i class="fa-solid fa-rectangle-xmark"></i>
                 <% end %>
               </div>

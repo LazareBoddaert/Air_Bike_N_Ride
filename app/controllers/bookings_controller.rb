@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_bicycle, only: %i[new create]
-  before_action :set_booking, only: %i[show destroy confirm]
+  before_action :set_booking, only: %i[show destroy confirm cancel]
 
   def index
     @bookings = policy_scope(Booking)

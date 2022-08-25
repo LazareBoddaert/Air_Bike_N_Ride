@@ -54,6 +54,15 @@
 
 
 .owner_card {
+  height: 100%;
   max-width: 30vw;
   border-radius: $border-radius;
+}
+
+.cancelled {
+  filter: opacity(0.3)
+}
+
+.confirmed  {
+  background-color: rgba(144, 238, 144, 0.1);
 }
