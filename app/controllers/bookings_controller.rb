@@ -1,10 +1,25 @@
 class BookingsController < ApplicationController
   before_action :set_bicycle, only: %i[new create]
-  before_action :set_booking, only: %i[show destroy]
+  before_action :set_booking, only: %i[show destroy confirm]
 
   def index
     @bookings = policy_scope(Booking)
     @bicycles = Bicycle.where(user: current_user).map(&:bookings).flatten
+  end
+
+  def confirm
+    @booking.confirmed = true
+    @booking.save
+    redirect_to bookings_path
+    authorize @booking
+  end
+
+  def cancel
+    @booking.confirmed = false
+    @booking.cancelled = true
+    @booking.save
+    redirect_to bookings_path
+    authorize @booking
   end
 
   def show

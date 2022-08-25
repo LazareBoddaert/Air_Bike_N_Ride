@@ -20,7 +20,7 @@
               <p><i class="fa-solid fa-spinner"></i> Ride requested</p>
 
               <div class="d-flex justify-content-evenly">
-                <%= link_to root_path, class: "fs-2" do %>
+                <%= link_to "/confirm/#{booking.id}", class: "fs-2" do %>
                   <i class="fa-solid fa-square-check"></i>
                 <% end %>
 
