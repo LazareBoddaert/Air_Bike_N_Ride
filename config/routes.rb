@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: %I[index destroy]
+
+  get "/confirm/:id", to: "bookings#confirm"
+  get "/cancel/:id", to: "bookings#cancel"
 end
