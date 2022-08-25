@@ -17,6 +17,7 @@ class BicyclesController < ApplicationController
 
   def create
     @bicycle = Bicycle.new(bicycle_params)
+    @bicycle.user_id = current_user.id
     if @bicycle.save
       redirect_to bicycle_path(@bicycle)
     else

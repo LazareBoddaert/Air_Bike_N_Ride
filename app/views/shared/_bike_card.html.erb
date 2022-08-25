@@ -2,16 +2,20 @@
   <% @bicycles.each do |bicycle| %>
     <%= link_to bicycle do %>
       <div class="bike-cards">
+        <% if bicycle.photo.attached? %>
         <div class="card-image"><%= cl_image_tag bicycle.photo.key %></div>
+        <% end %>
         <div class="card-content">
           <h3 class="card-title"><%= bicycle.title %></h3>
           <ul class="list-inline bike-price-size">
-            <li class="card-category list-inline-item"><%= bicycle.category %></li>
-            <li class="card-size list-inline-item"><%= bicycle.size %> cm</li>
+            <li class="card-category list-inline-item"><em><%= bicycle.category %></em></li>
+            <li class="card-size list-inline-item"><em><%= bicycle.size %> cm</em></li>
           </ul>
           <div class="card-description"><%= bicycle.description %></div>
-          <i class="fa-solid fa-euro-sign">
-          <span class="card-price"><%= bicycle.price_per_day %></span></i>
+          <div class="price">
+            <i class="fa-solid fa-euro-sign">
+            <span class="card-price"><%= bicycle.price_per_day %></span></i>
+          </div>
         </div>
       </div>
     <% end %>

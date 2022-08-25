@@ -139,15 +139,15 @@ bike9 = Bicycle.new(
   size: "50",
   address: "37 Rue des Archives, 75004"
 )
-file = URI.open("https://images.unsplash.com/photo-1556538628-451736d0e2c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80")
-bike9.photo.attach(io: file, filename: "bike5.jpg", content_type: "image/jpg")
+file = URI.open("https://res.cloudinary.com/dnid9bwsx/image/upload/v1661431211/cargo_bike_iadfvy.jpg")
+bike9.photo.attach(io: file, filename: "cargo_bike.jpg", content_type: "image/jpg")
 bike9.user = user9
 bike9.save!
 
 bike10 = Bicycle.new(
   title: "Bring your own Wheels",
   category: "Road",
-  description: "ATTENTION: I operate on a bring your own wheels policy. Saddle available on request (supplement 10 eur)",
+  description: "ATTENTION: I operate on a bring your own wheels policy. Saddle available on request (supplement 10 euros)",
   price_per_day: "60",
   size: "40",
   address: "55 Rue du Faubourg Saint-Honoré, 75008 Paris"
