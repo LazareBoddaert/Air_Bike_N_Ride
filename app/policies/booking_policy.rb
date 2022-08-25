@@ -15,6 +15,14 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def destroy?
+    record.user == user || record.bicycle.user == user
+  end
+
+  def confirm?
+    record.user == user
+  end
+
+  def cancel?
     record.user == user
   end
 end

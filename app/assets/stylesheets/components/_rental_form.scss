@@ -1,0 +1,36 @@
+.rent-form {
+  padding-bottom: 4em;
+}
+
+.rental-form {
+  background-color: $background-colour-dark;
+  border-radius: $border-radius;
+  color: $title-colour_light;
+  margin-top: 1em;
+  padding: 1em;
+
+  h3 {
+    text-align: center;
+  }
+
+  .btn-holder {
+    text-align: center;
+  }
+
+  .btn {
+    border-radius: 5px;
+    border-color: $background-colour_green;
+    color: $background-colour_green;
+  }
+  .btn:hover{
+    background-color: $background-colour_green;
+    border-color: $background-colour_main;
+    color: whitesmoke;
+  }
+}
+
+  @media (min-width: 768px) {
+    .rental-form {
+      max-width: 30vw;
+  }
+}
