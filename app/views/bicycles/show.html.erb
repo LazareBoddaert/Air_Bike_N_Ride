@@ -20,7 +20,7 @@
   <div class='for'>
     <% if @bookings.empty? %>
     <% else  %>
-      <%= simple_form_for [@bookings.first, @review] do |f| %>
+      <%= simple_form_for [@bookings.first, @review], html: { class: "border border-dark"} do |f| %>
         <%= f.input :content %>
         <%= f.input :rating %>
         <%= f.submit "Submit review", class: "btn btn-primary" %>
