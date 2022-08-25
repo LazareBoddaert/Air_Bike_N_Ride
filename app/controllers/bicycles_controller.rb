@@ -1,9 +1,12 @@
 class BicyclesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_bicycle, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_bicycle, only: %i[show edit update destroy]
 
   def index
     @bicycles = policy_scope(Bicycle)
+    if params[:query].present?
+      @bicycles = Bicycle.search_by_category_and_size(params[:query])
+    end
   end
 
   def show
@@ -17,6 +20,7 @@ class BicyclesController < ApplicationController
 
   def create
     @bicycle = Bicycle.new(bicycle_params)
+    @bicycle.user_id = current_user.id
     if @bicycle.save
       redirect_to bicycle_path(@bicycle)
     else
@@ -44,7 +48,7 @@ class BicyclesController < ApplicationController
   private
 
   def bicycle_params
-    params.require(:bicycle).permit(:title, :category, :description, :price_per_day, :size, :photo)
+    params.require(:bicycle).permit(:title, :category, :description, :price_per_day, :size, :photo, :address)
   end
 
   def set_bicycle
