@@ -51,10 +51,13 @@
     text-align: center;
     justify-content: center;
     position: relative;
+    font-size: large;
+    font-weight: bolder;
   }
   .card-description {
     position: relative;
     padding-top: 10px;
+    text-overflow: ellipsis;
   }
   .bike-price-size {
     display: flex;

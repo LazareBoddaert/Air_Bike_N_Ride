@@ -1,6 +1,6 @@
 <div class='show'>
   <h1><%= @bicycle.title %></h1>
-  <i class='photos'><%= image_tag @bicycle.photo %></i>
+  <i class='photos'><%= cl_image_tag @bicycle.photo.key, height: 400, crop: :fill %></i>
 
   <p>Category : <%= @bicycle.category %></p>
   <p>Size : <%= @bicycle.size %>cm</p>

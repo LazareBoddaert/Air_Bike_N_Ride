@@ -2,7 +2,7 @@
   <% @bicycles.each do |bicycle| %>
     <%= link_to bicycle do %>
       <div class="bike-cards">
-        <div class="card-image"><%= cl_image_tag bicycle.photo.key %></div> <%# image_tag bicycle.photo %>
+        <div class="card-image"><%= cl_image_tag bicycle.photo.key %></div>
         <div class="card-content">
           <h3 class="card-title"><%= bicycle.title %></h3>
           <ul class="list-inline bike-price-size">
