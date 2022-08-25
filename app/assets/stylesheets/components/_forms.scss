@@ -17,6 +17,13 @@
   }
 }
 
+.booking-total {
+  width: calc(100% - 80px);
+  position: fixed;
+  right: -1012px;
+  top: 142px;
+}
+
 @media (min-width: 768px) {
   .new_booking {
     max-width: 30vw;

@@ -1,0 +1,52 @@
+
+ <h3>Your Bikes' Rentals</h3>
+<div class="row" style="height: 68vh">
+    <% if @bicycles.length > 0 %>
+      <% @bicycles.each do |booking| %>
+      <div class="col-4 mb-3">
+      <% if booking.cancelled %>
+        <div class="card owner_card cancelled">
+      <% elsif booking.confirmed %>
+        <div class="card owner_card confirmed">
+      <% else %>
+        <div class="card owner_card">
+      <% end %>
+          <%= image_tag booking.bicycle.photo, class:"mb-2" %>
+          <div class="text-center">
+            <h4><%= booking.bicycle.title %></h4>
+            <p><%= booking.start_date.strftime('%e %b') %> to <%= booking.end_date.strftime('%e %b') %></p>
+            <% if booking.confirmed %>
+
+              <p><i class="fa-solid fa-check-double"></i> Ready to Ride!</p>
+
+              <%= link_to "/cancel/#{booking.id}", class: "fs-2" do %>
+                  <i class="fa-solid fa-rectangle-xmark"></i>
+                <% end %>
+
+            <% elsif booking.cancelled %>
+              <i class="fa-solid fa-ban"></i>
+              <p>Cancelled</p>
+            <% else %>
+              <p><i class="fa-solid fa-spinner"></i> Ride requested</p>
+
+              <div class="d-flex justify-content-evenly">
+                <%= link_to "/confirm/#{booking.id}", class: "fs-2" do %>
+                  <i class="fa-solid fa-square-check"></i>
+                <% end %>
+
+                <%= link_to "/cancel/#{booking.id}", class: "fs-2" do %>
+                  <i class="fa-solid fa-rectangle-xmark"></i>
+                <% end %>
+              </div>
+
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+    <% else %>
+
+      <p class="text-muted">No rentals yet <i class="fa-solid fa-face-sad-tear"></i></p>
+    <% end %>
+</div>

@@ -1,0 +1,33 @@
+<h3>Your Rentals</h3>
+<div class="row">
+  <% if @bookings.length.positive? %>
+    <% @bookings.each do |booking| %>
+    <% if booking.confirmed %>
+      <div class="card_booking-index mb-2 confirmed">
+    <% elsif booking.cancelled %>
+      <div class="card_booking-index mb-2 cancelled">
+    <% else %>
+      <div class="card_booking-index mb-2">
+    <% end %>
+
+        <%= image_tag booking.bicycle.photo %>
+          <div class="card_booking-index-infos">
+            <h2><%= booking.bicycle.title %></h2>
+            <p>
+              <%= booking.start_date.strftime('%e %b') %> to <%= booking.end_date.strftime('%e %b') %>
+              <span class="text-muted">(<%= pluralize(booking.duration, "day") %>)</span>
+            </p>
+            <p><%= booking.total_price.to_i %> <i class="fa-solid fa-euro-sign"></i></p>
+          </div>
+          <%= link_to bicycle_booking_path(booking.bicycle, booking) do  %>
+            <button class="btn btn-primary fs-4"><i class="fa-solid fa-circle-info"></i></button>
+          <% end %>
+          <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>
+            <button class="btn btn-danger fs-4"><i class="fa-solid fa-xmark"></i></button>
+          <% end %>
+        </div>
+    <% end %>
+  <% else %>
+    <p class="text-muted">No bookings yet <i class="fa-solid fa-face-sad-tear"></i></p>
+  <% end %>
+</div>
