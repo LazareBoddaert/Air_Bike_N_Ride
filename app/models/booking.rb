@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :bicycle
   belongs_to :user
+  has_many :reviews
   validates :start_date, :end_date, presence: true
   # end_date must be after start_date
   validates :end_date, comparison: { greater_than: :start_date }
@@ -12,7 +13,7 @@ class Booking < ApplicationRecord
     # Calculate the duration of the rental
     (end_date - start_date).to_i
   end
-  
+
   def total_price
     # Multiply duration of rental by the bicycle's price per day
     duration * bicycle.price_per_day
