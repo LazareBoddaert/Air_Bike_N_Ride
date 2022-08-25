@@ -5,13 +5,16 @@
   <p>Category : <%= @bicycle.category %></p>
   <p>Size : <%= @bicycle.size %>cm</p>
   <p>Price : <%= @bicycle.price_per_day %> €/day</p>
+  <p>Rating : <%= @bicycle.total_rating %> /5.0</p>
   <p>Description : <%= @bicycle.description %></p>
   <%= link_to "Book it!", new_bicycle_booking_path(@bicycle), class: 'book btn btn-primary' %>
 </div>
 <div class='contain m-5'>
   <div class='comment m-2'>
     <% @bicycle.bookings.each do |book| %>
-      <p><%= book.review.content %> : <%= book.review.rating %>/5</p>
+      <% book.reviews.each do |review| %>
+        <p><%= review.content %> : <%= review.rating %>/5</p>
+      <% end %>
     <% end %>
   </div>
   <div class='for'>
