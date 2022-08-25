@@ -1,10 +1,18 @@
-<div class='show'>
+<div class="container">
+<div class='show row'>
+<div class="col-6 card_bicycle">
   <h1><%= @bicycle.title %></h1>
-  <i class='photos'><%= image_tag @bicycle.photo %></i>
+  <i id="card_bicycle_img"><%= image_tag @bicycle.photo %></i>
 
   <p>Category : <%= @bicycle.category %></p>
   <p>Size : <%= @bicycle.size %>cm</p>
   <p>Price : <%= @bicycle.price_per_day %> €/day</p>
   <p>Description : <%= @bicycle.description %></p>
-  <%= link_to "Book it!", new_bicycle_booking_path(@bicycle), class: 'book btn btn-primary' %>
+
+  <div class="booking-total col-6">
+    <%= render "bookings/form" %>
+  </div>
+
+</div>
+</div>
 </div>

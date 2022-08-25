@@ -1,3 +1,4 @@
+
  <div data-controller="booking-total">
   <%= simple_form_for [@bicycle, @booking] do |f| %>
       <h1>Rent: <%= @bicycle.title %></h1><span id="price" data-price="<%= @bicycle.price_per_day %>" ></span>
@@ -8,4 +9,4 @@
         <p>Total: <span data-booking-total-target="total"></span> <i class="fa-solid fa-euro-sign"></i></p>
       </div>
     <% end %>
- </div>
+  </div>
