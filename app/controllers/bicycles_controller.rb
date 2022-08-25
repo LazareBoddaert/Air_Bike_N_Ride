@@ -7,6 +7,7 @@ class BicyclesController < ApplicationController
   end
 
   def show
+    @review = Review.new
     authorize @bicycle
   end
 
