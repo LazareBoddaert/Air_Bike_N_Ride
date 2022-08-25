@@ -19,6 +19,13 @@
               <span class="text-muted">(<%= pluralize(booking.duration, "day") %>)</span>
             </p>
             <p><%= booking.total_price.to_i %> <i class="fa-solid fa-euro-sign"></i></p>
+            <% if booking.confirmed %>
+              <p><i class="fa-solid fa-check-double"></i> You're ready to ride! <%= booking.bicycle.user.username %>'s bike!</p>
+            <% elsif booking.cancelled %>
+              <p><i class="fa-solid fa-ban"></i> Oh no! <%= booking.bicycle.user.username %> had to cancel...</p>
+            <% else %>
+              <p><i class="fa-solid fa-hourglass-half"></i> <%= booking.bicycle.user.username %> will let you know ASAP!</p>
+            <% end %>
           </div>
           <%= link_to bicycle_booking_path(booking.bicycle, booking) do  %>
             <button class="btn btn-primary fs-4"><i class="fa-solid fa-circle-info"></i></button>
