@@ -1,13 +1,18 @@
 <div class='show'>
   <h1><%= @bicycle.title %></h1>
-  <i class='photos'><%= image_tag @bicycle.photo %></i>
-
+  <% if @bicycle.photo.attached? %>
+  <i class='photos'><%= cl_image_tag @bicycle.photo.key, height: 400, crop: :fill %></i>
+  <% end %>
   <p>Category : <%= @bicycle.category %></p>
   <p>Size : <%= @bicycle.size %>cm</p>
   <p>Price : <%= @bicycle.price_per_day %> €/day</p>
   <p>Rating : <%= @bicycle.total_rating %> /5.0</p>
   <p>Description : <%= @bicycle.description %></p>
-  <%= link_to "Book it!", new_bicycle_booking_path(@bicycle), class: 'book btn btn-primary' %>
+  <div><%= link_to "Book it!", new_bicycle_booking_path(@bicycle), class: 'book btn btn-primary' %></div>
+  <% if @bicycle.user_id == current_user.id %>
+    <div><%= button_to "Delete this bicycle!", @bicycle, method: :delete,
+    form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'book btn btn-danger' %></div>
+  <% end %>
 </div>
 <div class='contain m-5'>
   <div class='comment m-2'>
