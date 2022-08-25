@@ -1,7 +1,18 @@
 <div class="container mt-2 mb-5">
   <div class="row">
     <div class="col-12 text-center">
-      <h1>Your Booking for <strong><%= @booking.bicycle.title %></strong></h1>
+      <h1>
+        Your Booking for <strong><%= @booking.bicycle.title %></strong>
+        <span class="text-muted fs-4">
+          <% if @booking.cancelled %>
+            Cancelled
+          <% elsif @booking.confirmed %>
+            Confirmed
+          <% else %>
+            Pending
+          <% end %>
+        </span>
+      </h1>
     </div>
   </div>
 
@@ -53,7 +64,7 @@
               </ul>
               <h6 class="mt-2">Address</h6>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Address</li>
+                <li class="list-group-item"><%= @booking.bicycle.address %></li>
               </ul>
             </div>
           </div>
@@ -79,6 +90,12 @@
                           <span class="text-muted">Status:</span>
                         </span>
                         <span>Ride confirmed!</span>
+                      <% elsif @booking.cancelled %>
+                        <span>
+                          <i class="fa-solid fa-ban"></i>
+                          <span class="text-muted">Status:</span>
+                        </span>
+                        <span>Cancelled</span>
                       <% else %>
                         <span>
                           <i class="fa-solid fa-hourglass"></i>
