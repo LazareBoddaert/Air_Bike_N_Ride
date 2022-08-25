@@ -1,10 +1,11 @@
 class ReviewsController < ApplicationController
   def create
-    @bicycle = Bicycle.find(params[:bicycle_id])
-    @review.bicycle = @bicycle
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new(review_params)
-    if @review.save
-      redirect_to bicycle_path(@bicycle)
+    @review.user = current_user
+    @review.booking = @booking
+    if @review.save!
+      redirect_to bicycles_path
     else
       render 'bicycles/show', status: :unprocessable_entity
     end
