@@ -8,8 +8,10 @@
   <p>Price : <%= @bicycle.price_per_day %> €/day</p>
   <p>Description : <%= @bicycle.description %></p>
   <div><%= link_to "Book it!", new_bicycle_booking_path(@bicycle), class: 'book btn btn-primary' %></div>
-  <% if @bicycle.user_id == current_user.id %>
-    <div><%= button_to "Delete this bicycle!", @bicycle, method: :delete,
-    form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'book btn btn-danger' %></div>
+  <% if current_user != nil %>
+    <% if @bicycle.user_id == current_user.id %>
+      <div><%= button_to "Delete this bicycle!", @bicycle, method: :delete,
+      form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'book btn btn-danger' %></div>
+    <% end %>
   <% end %>
 </div>
