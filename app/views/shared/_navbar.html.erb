@@ -4,11 +4,13 @@
       <i class="fa-solid fa-bicycle fs-3"></i>
     <% end %>
 
-    <form class="d-flex">
-        <input id="search-bar" class="form-control me-2" type="search" placeholder="Find a Bicycle" aria-label="Search">
-        <button id="btn-search" class="btn btn-success" type="submit">Search</button>
-    </form>
-
+    <%= form_with url: bicycles_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find your bike" %>
+        <%= submit_tag "Search", class:"btn btn-success" %>
+    <% end %>
 
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">

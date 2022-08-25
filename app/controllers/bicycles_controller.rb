@@ -4,6 +4,9 @@ class BicyclesController < ApplicationController
 
   def index
     @bicycles = policy_scope(Bicycle)
+    if params[:query].present?
+      @bicycles = Bicycle.search_by_category_and_size(params[:query])
+    end
   end
 
   def show

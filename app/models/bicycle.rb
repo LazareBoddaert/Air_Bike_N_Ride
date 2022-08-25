@@ -7,4 +7,11 @@ class Bicycle < ApplicationRecord
   validates :size, numericality: { in: 10..70 }
   validates :title, length: { maximum: 30 }
   validates :category, inclusion: { in: ['enfant', 'VTC', 'ville', 'cargo', 'tandem'] }
+
+  include PgSearch::Model
+  pg_search_scope :search_by_category_and_size,
+    against: [ :category, :size ],
+    using: {
+      tsearch: { prefix: true } #
+    }
 end
