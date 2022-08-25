@@ -1,9 +1,9 @@
 <%= simple_form_for(bicycle) do |f| %>
   <%= f.input :title %>
-  <%= f.input :category %>
+  <%= f.input :category, collection: ['Child', 'City', 'Urban', 'Cargo', 'Tandem', 'Mountain'] %>
   <%= f.input :description %>
   <%= f.input :price_per_day %>
   <%= f.input :size %>
-  <%= f.input :photo %>
-  <%= f.submit %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit %>
 <% end %>
