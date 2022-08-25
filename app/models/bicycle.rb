@@ -12,6 +12,6 @@ class Bicycle < ApplicationRecord
   pg_search_scope :search_by_category_and_size,
     against: [ :category, :size ],
     using: {
-      tsearch: { prefix: true } #
+      tsearch: { prefix: true }
     }
 end
