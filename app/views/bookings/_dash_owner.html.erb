@@ -1,15 +1,9 @@
 
-<div class="carousel-container">
-
-  <input type="radio" name="position" checked />
-  <% (@bicycles.length - 1).times do %>
-    <input type="radio" name="position" />
-  <% end %>
-
-  <main id="carousel">
+<div class="row mb-5">
     <% if @bicycles.length > 0 %>
-      <% @bicycles.each_with_index do |booking, i| %>
-        <div class="item card">
+      <% @bicycles.each do |booking| %>
+      <div class="col-4 mb-3">
+        <div class="card owner_card">
           <%= image_tag booking.bicycle.photo %>
           <div class="text-center">
             <h4><%= booking.bicycle.title %></h4>
@@ -30,7 +24,7 @@
                   <i class="fa-solid fa-square-check"></i>
                 <% end %>
 
-                <%= link_to root_path, class: "fs-2" do %>
+                <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "fs-2" do %>
                   <i class="fa-solid fa-rectangle-xmark"></i>
                 <% end %>
               </div>
@@ -38,12 +32,11 @@
             <% end %>
           </div>
         </div>
+      </div>
       <% end %>
 
     <% else %>
 
       <p class="text-muted">No rentals yet <i class="fa-solid fa-face-sad-tear"></i></p>
     <% end %>
-  <main>
-  </div>
 </div>
