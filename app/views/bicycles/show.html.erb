@@ -8,3 +8,13 @@
   <p>Description : <%= @bicycle.description %></p>
   <%= link_to "Book it!", new_bicycle_booking_path(@bicycle), class: 'book btn btn-primary' %>
 </div>
+<div>
+
+
+
+<%= simple_form_for(@review) do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.submit %>
+<% end %>
+</div>
