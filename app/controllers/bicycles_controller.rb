@@ -8,6 +8,8 @@ class BicyclesController < ApplicationController
 
   def show
     @review = Review.new
+    @bookings = Booking.where(user_id: current_user, bicycle_id: @bicycle)
+    @reviews = Review.all
     authorize @bicycle
   end
 

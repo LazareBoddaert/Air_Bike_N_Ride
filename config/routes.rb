@@ -8,8 +8,9 @@ Rails.application.routes.draw do
 
   resources :bicycles do
     resources :bookings, only: %I[new create show]
-    resources :reviews, only: [:new, :create]
   end
 
-  resources :bookings, only: %I[index destroy]
+  resources :bookings, only: %I[index destroy] do
+    resources :reviews, only: [:new, :create]
+  end
 end

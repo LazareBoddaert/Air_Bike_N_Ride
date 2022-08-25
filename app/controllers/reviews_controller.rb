@@ -4,10 +4,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     @review.booking = @booking
-    if @review.save
+    if @review.save!
       redirect_to bicycles_path
     else
-      raise
       render 'bicycles/show', status: :unprocessable_entity
     end
     authorize @review
