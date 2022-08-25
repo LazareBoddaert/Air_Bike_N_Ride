@@ -20,7 +20,7 @@ user4 = User.create!(username: "Nairo Quintana", email: "test3@test.fr", passwor
 user5 = User.create!(username: "Jonas Vingegaard", email: "test4@test.fr", password: '123456')
 user6 = User.create!(username: "Annemiek van Vleuten", email: "test5@test.fr", password: '123456')
 user7 = User.create!(username: "Pierrette Pinneau", email: "test6@test.fr", password: '123456')
-user8 = User.create!(username: "Pierrette Pinneau", email: "test7@test.fr", password: '123456')
+user8 = User.create!(username: "Pierreau Pinnette", email: "test7@test.fr", password: '123456')
 user9 = User.create!(username: "Felicienne Jodion", email: "test8@test.fr", password: '123456')
 user10 = User.create!(username: "Brier Paimboeuf", email: "test9@test.fr", password: '123456')
 
@@ -31,9 +31,9 @@ bike1 = Bicycle.new(
   description: "The perfect bike for all paths",
   price_per_day: "10",
   size: "60",
-  photo: 'vtc_image.jpg',
   address: "34 Rue de la Lune, 75002 Paris"
 )
+bike1.photo.attach(io: vtc_image.jpeg, filename: "vtc_image.jpeg", content_type: "image/jpeg")
 bike1.user = user1
 bike1.save!
 
@@ -43,9 +43,9 @@ bike2 = Bicycle.new(
   description: "Perfect for two - get yourself a buddy and get out there!",
   price_per_day: "20",
   size: "55",
-  photo: 'tandem_image.jpg',
   address: '9 Rue de Hauteville, 75010 Paris'
 )
+bike2.photo.attach(io: file, filename: "tandem_image.jpeg", content_type: "image/jpeg")
 bike2.user = user2
 bike2.save!
 
@@ -55,9 +55,9 @@ bike3 = Bicycle.new(
   description: "You'll have no worries tackling rugged terrain on this one",
   price_per_day: "15",
   size: "50",
-  photo: 'vtt1.jpg',
   address: "16 Villa Gaudelet, 75011 Paris"
 )
+bike3.photo.attach(io: file, filename: "vtt1.jpeg", content_type: "image/jpeg")
 bike3.user = user3
 bike3.save!
 
@@ -67,9 +67,9 @@ bike4 = Bicycle.new(
   description: "A magnificent pink bicycle, complete with stabilisers for a first outing in complete safety.",
   price_per_day: "5",
   size: "30",
-  photo: 'velo_enfant.jpg',
   address: "27 Rue de Citeaux, 75012 Paris"
 )
+bike4.photo.attach(io: file, filename: "velo_enfant.jpeg", content_type: "image/jpeg")
 bike4.user = user4
 bike4.save!
 
@@ -79,9 +79,9 @@ bike5 = Bicycle.new(
   description: "Everyone should give this ride a go",
   price_per_day: "30",
   size: "60",
-  photo: 'bike1.jpg',
   address: "13 Rue Damrémont, 75018 Paris"
 )
+bike5.photo.attach(io: file, filename: "bike1.jpeg", content_type: "image/jpeg")
 bike5.user = user5
 bike5.save!
 
