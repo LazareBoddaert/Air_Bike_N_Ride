@@ -12,6 +12,15 @@
   border-radius: $border-radius;
 }
 
+.card_bicycle {
+  background-color: #3A5A40;
+  color: #DAD7CD;
+  #card_bicycle_img img{
+    width: 100%;
+    border-radius: 5px
+  }
+  }
+
 /* Booking Index Cards */
 
 .card_booking-index {
