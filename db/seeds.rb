@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "open-uri"
+
 puts "destroying bookings"
 Booking.destroy_all
 puts "destroying bicycles"
@@ -33,7 +35,8 @@ bike1 = Bicycle.new(
   size: "60",
   address: "34 Rue de la Lune, 75002 Paris"
 )
-bike1.photo.attach(io: vtc_image.jpeg, filename: "vtc_image.jpeg", content_type: "image/jpeg")
+file = URI.open("https://res.cloudinary.com/dnid9bwsx/image/upload/v1661423286/vtc_image_ctisqq.jpg")
+bike1.photo.attach(io: file, filename: "vtc_image.jpg", content_type: "image/jpg")
 bike1.user = user1
 bike1.save!
 
@@ -45,7 +48,8 @@ bike2 = Bicycle.new(
   size: "55",
   address: '9 Rue de Hauteville, 75010 Paris'
 )
-bike2.photo.attach(io: file, filename: "tandem_image.jpeg", content_type: "image/jpeg")
+file = URI.open("https://res.cloudinary.com/dnid9bwsx/image/upload/v1661423286/tandem_image_adxxh2.jpg")
+bike2.photo.attach(io: file, filename: "tandem_image.jpg", content_type: "image/jpg")
 bike2.user = user2
 bike2.save!
 
@@ -57,7 +61,8 @@ bike3 = Bicycle.new(
   size: "50",
   address: "16 Villa Gaudelet, 75011 Paris"
 )
-bike3.photo.attach(io: file, filename: "vtt1.jpeg", content_type: "image/jpeg")
+file = URI.open("https://res.cloudinary.com/dnid9bwsx/image/upload/v1661423287/vtt1_psqo7t.jpg")
+bike3.photo.attach(io: file, filename: "vtt1.jpg", content_type: "image/jpg")
 bike3.user = user3
 bike3.save!
 
@@ -69,7 +74,8 @@ bike4 = Bicycle.new(
   size: "30",
   address: "27 Rue de Citeaux, 75012 Paris"
 )
-bike4.photo.attach(io: file, filename: "velo_enfant.jpeg", content_type: "image/jpeg")
+file = URI.open("https://res.cloudinary.com/dnid9bwsx/image/upload/v1661423285/velo_enfant_ytimes.jpg")
+bike4.photo.attach(io: file, filename: "velo_enfant.jpg", content_type: "image/jpg")
 bike4.user = user4
 bike4.save!
 
@@ -81,7 +87,8 @@ bike5 = Bicycle.new(
   size: "60",
   address: "13 Rue Damrémont, 75018 Paris"
 )
-bike5.photo.attach(io: file, filename: "bike1.jpeg", content_type: "image/jpeg")
+file = URI.open("https://res.cloudinary.com/dnid9bwsx/image/upload/v1661423287/bike1_hp0n3y.jpg")
+bike5.photo.attach(io: file, filename: "bike1.jpg", content_type: "image/jpg")
 bike5.user = user5
 bike5.save!
 
@@ -91,9 +98,10 @@ bike6 = Bicycle.new(
   description: "You won't be same after you've taken this beauty for a spin",
   price_per_day: "500",
   size: "65",
-  photo: 'https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1048&q=80',
   address: "174 Quai de Jemmapes, 75010 Paris"
 )
+file = URI.open("https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1048&q=80")
+bike6.photo.attach(io: file, filename: "bike2.jpg", content_type: "image/jpg")
 bike6.user = user6
 bike6.save!
 
@@ -106,6 +114,8 @@ bike7 = Bicycle.new(
   photo: 'https://bikepacking.com/wp-content/uploads/2022/03/cargo-doggo-omnium-34.jpg',
   address: "45 Avenue René Coty, 75014 Paris"
 )
+file = URI.open("")
+bike7.photo.attach(io: file, filename: "bike1.jpg", content_type: "image/jpg")
 bike7.user = user7
 bike7.save!
 
@@ -119,6 +129,8 @@ bike8 = Bicycle.new(
   photo: 'https://images.unsplash.com/photo-1595726504173-29ed8ce3bce0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8b2xkJTIwYmljeWNsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60',
   address: "20 Rue Cujas, 75005 Paris"
 )
+file = URI.open("")
+bike8.photo.attach(io: file, filename: "bike1.jpg", content_type: "image/jpg")
 bike8.user = user8
 bike8.save!
 
@@ -130,6 +142,8 @@ bike9 = Bicycle.new(
   photo: 'https://images.unsplash.com/photo-1556538628-451736d0e2c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
   address: "37 Rue des Archives, 75004"
 )
+file = URI.open("")
+bike9.photo.attach(io: file, filename: "bike1.jpg", content_type: "image/jpg")
 bike9.user = user9
 bike9.save!
 
@@ -142,5 +156,7 @@ bike10 = Bicycle.new(
   photo: 'https://images.unsplash.com/photo-1528732942118-fcc0881d7ba7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
   address: "55 Rue du Faubourg Saint-Honoré, 75008 Paris"
 )
+file = URI.open("")
+bike10.photo.attach(io: file, filename: "bike1.jpg", content_type: "image/jpg")
 bike10.user = user10
 bike10.save!
