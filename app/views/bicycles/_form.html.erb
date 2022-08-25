@@ -1,16 +1,17 @@
-<div class="container">
-  <%= simple_form_for(bicycle) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :category, collection: ['Child', 'City', 'Cargo', 'Tandem', 'Mountain', 'Road'] %>
-    <%= f.input :description %>
-    <%= f.input :price_per_day %>
-    <%= f.input :size %>
-    <%= f.input :address %>
-    <%= f.input :photo, as: :file %>
-    <%= f.button :submit %>
-    <br>
-    <br>
-    <br>
-    <br>
-  <% end %>
+<div class="container rent-form">
+  <div class="rental-form">
+    <h3>Rent your bicycle</h3>
+    <%= simple_form_for(bicycle) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :category, collection: ['Child', 'City', 'Cargo', 'Tandem', 'Mountain', 'Road'] %>
+      <%= f.input :description %>
+      <%= f.input :price_per_day %>
+      <%= f.input :size %>
+      <%= f.input :address %>
+      <%= f.input :photo, as: :file %>
+      <div class="btn-holder">
+        <%= f.button :submit, "Add your bicycle", class: "btn btn-outline-success" %>
+      </div>
+    <% end %>
+  </div>
 </div>

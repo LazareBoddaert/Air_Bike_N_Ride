@@ -1,9 +1,21 @@
-.new_booking {
+.rent-form {
+  padding-bottom: 4em;
+}
+
+.rental-form {
   background-color: $background-colour-dark;
   border-radius: $border-radius;
   color: $title-colour_light;
   margin-top: 1em;
   padding: 1em;
+
+  h3 {
+    text-align: center;
+  }
+
+  .btn-holder {
+    text-align: center;
+  }
 
   .btn {
     border-radius: 5px;
@@ -17,8 +29,8 @@
   }
 }
 
-@media (min-width: 768px) {
-  .new_booking {
-    max-width: 30vw;
+  @media (min-width: 768px) {
+    .rental-form {
+      max-width: 30vw;
   }
 }
