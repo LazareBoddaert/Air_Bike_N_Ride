@@ -1,7 +1,7 @@
 <div class="w-100">
   <h3>Your Rentals</h3>
   <% if @bookings.length.positive? %>
-    <% @bicycles.each do |booking| %>
+    <% @bookings.each do |booking| %>
       <div class="card_booking-index mb-2">
         <%= image_tag booking.bicycle.photo %>
           <div class="card_booking-index-infos">

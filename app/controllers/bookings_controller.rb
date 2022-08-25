@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(Booking)
+    @bicycles = Bicycle.where(user: current_user).map(&:bookings).flatten
   end
 
   def show
@@ -23,7 +24,7 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:notice] = "Booking Created"
-      redirect_to bicycle_booking_path(@bicycle, @booking)
+      redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
     end
