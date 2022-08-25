@@ -1,19 +1,11 @@
-<div class="container">
+<div class="container mb-5">
   <h1 class="text-center">Bookings</h1>
-    <div class="row mt-3 gx-5">
+    <div class="row mt-3 gx-5 class="mb-5">
       <div class="col-6">
        <%= render "dash_booker" %>
       </div>
       <div class="col-6">
-        <p>Your Details</p>
+          <%= render "dash_owner" %>
       </div>
     </div>
-
-    <div class="row">
-        <div class="col-12 mx-auto">
-          <h3 class="text-center mt-3">Your Bikes' Rentals</h3>
-          <%= render "dash_owner" %>
-        </div>
-      </div>
-
 </div>

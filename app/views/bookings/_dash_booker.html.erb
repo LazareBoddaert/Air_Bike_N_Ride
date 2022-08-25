@@ -1,8 +1,15 @@
-<div class="w-100">
-  <h3>Your Rentals</h3>
+<h3>Your Rentals</h3>
+<div class="row">
   <% if @bookings.length.positive? %>
     <% @bookings.each do |booking| %>
+    <% if booking.confirmed %>
+      <div class="card_booking-index mb-2 confirmed">
+    <% elsif booking.cancelled %>
+      <div class="card_booking-index mb-2 cancelled">
+    <% else %>
       <div class="card_booking-index mb-2">
+    <% end %>
+
         <%= image_tag booking.bicycle.photo %>
           <div class="card_booking-index-infos">
             <h2><%= booking.bicycle.title %></h2>
