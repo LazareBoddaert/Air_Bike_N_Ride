@@ -8,6 +8,7 @@
   color: $title-colour_light;
   margin-top: 1em;
   padding: 1em;
+  border-radius: 5px;
 
   h3 {
     text-align: center;
@@ -21,6 +22,7 @@
     border-radius: 5px;
     border-color: $background-colour_green;
     color: $background-colour_green;
+    background-color: $background-colour_dark;
   }
   .btn:hover{
     background-color: $background-colour_green;
