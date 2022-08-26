@@ -12,12 +12,14 @@
        <p>Description : <%= @bicycle.description %></p>
        <div class="booking-total col-6">
          <%= render "bookings/form" %>
-       </div> 
+       </div>
      </div>
  </div>
-  <% if @bicycle.user_id == current_user.id %>
-    <div><%= button_to "Delete this bicycle!", @bicycle, method: :delete,
-    form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'book btn btn-danger' %></div>
+  <% if current_user != nil %>
+    <% if @bicycle.user_id == current_user.id %>
+      <div><%= button_to "Delete this bicycle!", @bicycle, method: :delete,
+      form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'book btn btn-danger' %></div>
+    <% end %>
   <% end %>
 </div>
 <div class='contain m-5'>

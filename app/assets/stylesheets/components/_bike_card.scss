@@ -66,7 +66,7 @@
     -webkit-box-orient: vertical;
     white-space: normal;
   }
-  .bike-price-size {
+  .bike-cat-size {
     display: flex;
     justify-content: space-between;
     padding-top: 5px;
@@ -84,6 +84,14 @@
     position: relative;
     text-align: right;
     margin-bottom: 5px;
+  }
+  .bike-price-rate {
+    display: flex;
+    justify-content: space-between;
+  }
+  .bike-rate {
+    font-style: normal;
+    font-size: medium;
   }
 
   i {

@@ -7,15 +7,24 @@
         <% end %>
         <div class="card-content">
           <h3 class="card-title"><%= bicycle.title %></h3>
-          <ul class="list-inline bike-price-size">
+          <ul class="list-inline bike-cat-size">
             <li class="card-category list-inline-item"><em><%= bicycle.category %></em></li>
             <li class="card-size list-inline-item"><em><%= bicycle.size %> cm</em></li>
           </ul>
           <div class="card-description"><%= bicycle.description %></div>
-          <div class="price">
-            <i class="fa-solid fa-euro-sign">
-            <span class="card-price"><%= bicycle.price_per_day %></span></i>
-          </div>
+          <ul class="list-inline bike-price-rate">
+            <% if bicycle.total_rating == 0 %>
+              <i class="fa-solid fa-star">
+              <li class="list-inline-item"><em>No rating yet</em></li></i>
+            <% else %>
+              <i class="fa-solid fa-star">
+              <li class="bike-rate list-inline-item"><%= bicycle.total_rating %>/5</li></i>
+            <% end %>
+            <li class="price list-inline-item">
+              <i class="fa-solid fa-euro-sign">
+              <span class="card-price"><%= bicycle.price_per_day %></span></i>
+            </li>
+          </ul>
         </div>
       </div>
     <% end %>
