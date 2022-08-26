@@ -17,6 +17,8 @@
   color : white;
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 #btn-search:hover {
@@ -32,4 +34,6 @@
 #search-bar {
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
