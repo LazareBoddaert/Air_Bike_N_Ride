@@ -16,15 +16,11 @@
   }
 }
 
-.contain {
-  margin: 100px 150px;
-  margin-right: 750px;
-
-  .comment {
-    max-height: 250px;
-    overflow-y: scroll;
-  }
+.comment {
+  max-height: 250px;
+  overflow-y: scroll;
 }
+
 
 .btn {
   border-radius: 5px;
