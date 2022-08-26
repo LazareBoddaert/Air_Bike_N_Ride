@@ -20,7 +20,7 @@ class Bicycle < ApplicationRecord
       t = (d/Review.all.length).to_f
     end
   end
-  
+
   include PgSearch::Model
   pg_search_scope :search_by_category_and_size,
     against: [ :category, :size ],
