@@ -19,10 +19,10 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def confirm?
-    record.user == user
+    record.bicycle.user == user
   end
 
   def cancel?
-    record.user == user
+    record.bicycle.user == user
   end
 end
