@@ -1,10 +1,10 @@
 .navbar {
   background-color: $background-colour_green;
   justify-content: space-between;
-  position: sticky;
+  // position: sticky;
   top: 0;
   z-index: 5;
-  max-height: 20vh;
+  height: 70px;
 }
 
 .navbar .navbar-collapse {
