@@ -14,10 +14,10 @@ class Bicycle < ApplicationRecord
     reviews.each do |rev|
       d += rev.rating.to_f
     end
-    if Review.all.length.zero?
+    if reviews.length.zero?
       t = 0
     else
-      t = (d/Review.all.length).round(1)
+      t = (d/reviews.length).round(1)
     end
   end
 
