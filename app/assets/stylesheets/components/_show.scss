@@ -18,4 +18,8 @@
 
 .contain {
   padding-right: 500px;
+
+  .comment {
+    overflow-y: scroll;
+  }
 }
