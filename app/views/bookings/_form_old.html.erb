@@ -1,0 +1,11 @@
+<div data-controller="booking-total">
+  <%= simple_form_for [@bicycle, @booking] do |f| %>
+    <h1>Rent: <%= @bicycle.title %></h1><span id="price" data-price="<%= @bicycle.price_per_day %>" ></span>
+    <%= f.input :start_date, as: :date, label: "From", html5: true, input_html: { data: { action: "input->booking-total#computePrice" }} %>
+    <%= f.input :end_date, as: :date, label: "Until", html5: true, input_html: { data: { action: "input->booking-total#computePrice" }} %>
+    <div class="d-flex justify-content-between">
+      <%= f.button :submit, "Book now", class: "btn btn-outline-success" %>
+      <p>Total: <span data-booking-total-target="total"></span> <i class="fa-solid fa-euro-sign"></i></p>
+    </div>
+  <% end %>
+</div>

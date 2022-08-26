@@ -2,9 +2,16 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { Application } from "@hotwired/stimulus"
-import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
+import { application } from "./application"
 
-window.Stimulus = Application.start()
-const context = require.context("../controllers", true, /\.js$/)
-Stimulus.load(definitionsFromContext(context))
+import BookingTotalController from "./booking_total_controller"
+application.register("booking-total", BookingTotalController)
+
+import DynamicBookingPriceController from "./dynamic_booking_price_controller"
+application.register("dynamic-booking-price", DynamicBookingPriceController)
+
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
+import HelloController from "./hello_controller"
+application.register("hello", HelloController)

@@ -1,12 +1,31 @@
-
- <div data-controller="booking-total">
-  <%= simple_form_for [@bicycle, @booking] do |f| %>
-      <h1>Rent: <%= @bicycle.title %></h1><span id="price" data-price="<%= @bicycle.price_per_day %>" ></span>
-      <%= f.input :start_date, as: :date, label: "From", html5: true, input_html: { data: { action: "input->booking-total#computePrice" }} %>
-      <%= f.input :end_date, as: :date, label: "Until", html5: true, input_html: { data: { action: "input->booking-total#computePrice" }} %>
-      <div class="d-flex justify-content-between">
-        <%= f.button :submit, "Book now", class: "btn btn-outline-success" %>
-        <p>Total: <span data-booking-total-target="total"></span> <i class="fa-solid fa-euro-sign"></i></p>
-      </div>
-    <% end %>
-  </div>
+<div data-controller="dynamic-booking-price"
+     data-dynamic-booking-price-price-value="<%= @bicycle.price_per_day %>">
+  <%= simple_form_for [@bicycle, @booking],
+                      html: {
+                        data: {
+                          controller: 'flatpickr'
+                        }
+                      } do |f| %>
+    <h1>Rent: <%= @bicycle.title %></h1>
+    <%= f.input :start_date,
+                as: :string,
+                input_html: {
+                  data: {
+                    flatpickr_target: 'startDateInput',
+                    dynamic_booking_price_target: 'startDateInput',
+                    action: 'change->dynamic-booking-price#updatePrice'
+  } } %>
+    <%= f.input :end_date,
+                as: :string,
+                input_html: {
+                  data: {
+                    flatpickr_target: 'endDateInput',
+                    dynamic_booking_price_target: 'endDateInput',
+                    action: 'change->dynamic-booking-price#updatePrice'
+  } } %>
+    <div class="d-flex justify-content-between">
+      <%= f.submit 'Book now!', class: 'btn btn-primary' %>
+      <p class="my-0 mx-0 d-inline-flex align-items-center justify-content-between w-25">Total price: <span data-dynamic-booking-price-target="priceHolder"> <%= @bicycle.price_per_day %> </span> €</p>
+    </div>
+  <% end %>
+</div>
