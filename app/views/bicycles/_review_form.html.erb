@@ -4,7 +4,7 @@
     <ul class="list-group list-group-flush p-2">
       <% @bicycle.bookings.each do |book| %>
         <% book.reviews.each do |review| %>
-          <li class="list-group-item"><%= review.content %> : <%= review.rating %>/5</li>
+          <li class="list-group-item"><strong><%= book.user.username %></strong> : <%= review.content %>,  <%= review.rating %>/5</li>
         <% end %>
       <% end %>
     </ul>
