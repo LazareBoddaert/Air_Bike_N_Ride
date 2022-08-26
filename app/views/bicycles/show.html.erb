@@ -12,7 +12,7 @@
        <p>Description : <%= @bicycle.description %></p>
        <div class="booking-total col-6">
          <%= render "bookings/form" %>
-       </div> 
+       </div>
      </div>
  </div>
   <% if @bicycle.user_id == current_user.id %>
@@ -21,8 +21,8 @@
   <% end %>
 </div>
 <div class='contain m-5'>
-  <div class='comment m-2'>
-    <ul class="list-group list-group-flush">
+  <div class='comment'>
+    <ul class="list-group list-group-flush border rounded p-2">
       <% @bicycle.bookings.each do |book| %>
         <% book.reviews.each do |review| %>
           <li class="list-group-item"><%= review.content %> : <%= review.rating %>/5</li>
@@ -33,7 +33,7 @@
   <div class='for'>
     <% if @bookings.empty? %>
     <% else  %>
-      <div class="border border-dark rounded p-2 border-opacity-25">
+      <div class="border border-dark rounded p-2 border-opacity-10">
         <%= simple_form_for [@bookings.first, @review] do |f| %>
           <%= f.input :content %>
           <%= f.input :rating %>
