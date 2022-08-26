@@ -1,6 +1,7 @@
 <div class='contain m-5'>
-  <div class='comment'>
-    <ul class="list-group list-group-flush border rounded p-2">
+  <h2>Reviews :</h2>
+  <div class='comment border rounded'>
+    <ul class="list-group list-group-flush p-2">
       <% @bicycle.bookings.each do |book| %>
         <% book.reviews.each do |review| %>
           <li class="list-group-item"><%= review.content %> : <%= review.rating %>/5</li>
