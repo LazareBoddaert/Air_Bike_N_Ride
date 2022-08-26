@@ -17,10 +17,32 @@
 }
 
 .contain {
-  padding-right: 500px;
+  margin: 100px 150px;
+  margin-right: 750px;
 
   .comment {
     max-height: 250px;
     overflow-y: scroll;
+  }
+}
+
+.btn {
+  border-radius: 5px;
+  border-color: $background-colour_green;
+  color: $background-colour_green;
+  background-color: white;
+}
+.btn:hover{
+  background-color: $background-colour_green;
+  border-color: $background-colour_main;
+  color: whitesmoke;
+}
+
+.rev {
+  background-color: #3A5A40;
+  color: $background-colour_main;
+
+  .infor {
+    background-color: white;
   }
 }
