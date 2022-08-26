@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.booking = @booking
     if @review.save!
-      redirect_to bicycles_path
+      redirect_to bicycle_path(@booking.bicycle)
     else
       render 'bicycles/show', status: :unprocessable_entity
     end
