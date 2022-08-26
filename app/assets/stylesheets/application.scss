@@ -17,3 +17,7 @@
 a {
   text-decoration: none;
 }
+
+.wrapper {
+  min-height: calc(100vh - 70px - 30px);
+}
