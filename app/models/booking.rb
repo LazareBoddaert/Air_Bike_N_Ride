@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :bicycle
   belongs_to :user
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   validates :start_date, :end_date, presence: true
   # end_date must be after start_date
   validates :end_date, comparison: { greater_than: :start_date }

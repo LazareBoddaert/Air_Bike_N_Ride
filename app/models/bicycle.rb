@@ -1,6 +1,6 @@
 class Bicycle < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
   has_one_attached :photo
   # validates :photo, presence: true
@@ -20,7 +20,7 @@ class Bicycle < ApplicationRecord
       t = (d/Review.all.length).to_f
     end
   end
-  
+
   include PgSearch::Model
   pg_search_scope :search_by_category_and_size,
     against: [ :category, :size ],
