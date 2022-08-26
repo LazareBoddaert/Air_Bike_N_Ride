@@ -7,6 +7,9 @@ import { application } from "./application"
 import BookingTotalController from "./booking_total_controller"
 application.register("booking-total", BookingTotalController)
 
+import DynamicBookingPriceController from "./dynamic_booking_price_controller"
+application.register("dynamic-booking-price", DynamicBookingPriceController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 

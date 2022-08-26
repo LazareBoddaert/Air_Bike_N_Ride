@@ -1,24 +1,31 @@
-<div data-controller="booking-total">
+<div data-controller="dynamic-booking-price"
+     data-dynamic-booking-price-price-value="<%= @bicycle.price_per_day %>">
   <%= simple_form_for [@bicycle, @booking],
                       html: {
                         data: {
                           controller: 'flatpickr'
                         }
                       } do |f| %>
+    <h1>Rent: <%= @bicycle.title %></h1>
     <%= f.input :start_date,
                 as: :string,
                 input_html: {
                   data: {
                     flatpickr_target: 'startDateInput',
+                    dynamic_booking_price_target: 'startDateInput',
+                    action: 'change->dynamic-booking-price#updatePrice'
   } } %>
     <%= f.input :end_date,
                 as: :string,
                 input_html: {
                   data: {
-                    flatpickr_target: 'endDateInput'
+                    flatpickr_target: 'endDateInput',
+                    dynamic_booking_price_target: 'endDateInput',
+                    action: 'change->dynamic-booking-price#updatePrice'
   } } %>
     <div class="d-flex justify-content-between">
       <%= f.submit 'Book now!', class: 'btn btn-primary' %>
+      <p class="my-0 mx-0 d-inline-flex align-items-center justify-content-between w-25">Total price: <span data-dynamic-booking-price-target="priceHolder"> <%= @bicycle.price_per_day %> </span> €</p>
     </div>
   <% end %>
 </div>

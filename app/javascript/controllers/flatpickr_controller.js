@@ -12,6 +12,7 @@ export default class extends Controller {
   connect() {
     flatpickr(this.startDateInputTarget, {
       mode: 'range',
+      minDate: new Date().fp_incr(1),
       "plugins": [new rangePlugin({ input: this.endDateInputTarget})]
 }) }
 }
