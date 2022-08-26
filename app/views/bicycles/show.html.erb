@@ -8,20 +8,20 @@
         <h2> <span class="bold-text"><%= @bicycle.title %></span></h2>
         <h3> <span class="bold-text"><%= @bicycle.price_per_day %> €</span> /day</h3>
       </div>
-      <p>Category : <strong> <%= @bicycle.category %> </strong> | Size : <strong><%= @bicycle.size %>cm</strong> | Rating : <strong><%= @bicycle.total_rating %> /5.0</strong></p>
+      <p>Category : <strong> <%= @bicycle.category %> </strong> | Size : <strong><%= @bicycle.size %>cm</strong> | Rating : <strong><%= @bicycle.total_rating %> / 5.0</strong></p>
       <p><em><%= @bicycle.description %></em></p>
       <% if current_user != nil %>
        <% if @bicycle.user_id == current_user.id %>
           <div><%= button_to "Delete this bicycle!", @bicycle, method: :delete,
           form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'book btn btn-danger' %></div>
        <% end %>
-      <% end %> 
+      <% end %>
       <div class="comments"></div>
     </div>
     <div class="col-4 sticky-card">
       <div class="p-4 fixed-form-booking">
-        <h3>Rent this bike</h3>
          <%= render "bookings/form" %>
       </div>
     </div>
   </div>
+</div>

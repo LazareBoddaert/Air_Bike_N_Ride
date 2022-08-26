@@ -24,8 +24,8 @@
                     action: 'change->dynamic-booking-price#updatePrice'
   } } %>
     <div class="d-flex justify-content-between">
-      <%= f.submit 'Book now!', class: 'btn btn-primary' %>
-      <p class="my-0 mx-0 d-inline-flex align-items-center justify-content-between w-25">Total price: <span data-dynamic-booking-price-target="priceHolder"> <%= @bicycle.price_per_day %> </span> €</p>
+      <%= f.submit 'Rent this bike', class: 'btn btn-primary' %>
+      <p class="my-0 mx-0 d-inline-flex align-items-center justify-content-between w-40"> Total price: <span data-dynamic-booking-price-target="priceHolder"> <%= @bicycle.price_per_day %> </span> €</p>
     </div>
   <% end %>
 </div>
