@@ -15,7 +15,7 @@
           <ul class="list-inline bike-price-rate">
             <% if bicycle.total_rating == 0 %>
               <i class="fa-solid fa-star">
-              <li class="list-inline-item"><em>No rating yet</em></li></i>
+              <li class="list-inline-item"><span class="no-rate"><em>No rating yet</em></span></li></i>
             <% else %>
               <i class="fa-solid fa-star">
               <li class="bike-rate list-inline-item"><%= bicycle.total_rating %>/5</li></i>
