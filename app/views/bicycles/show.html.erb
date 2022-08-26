@@ -10,10 +10,12 @@
       </div>
       <p>Category : <strong> <%= @bicycle.category %> </strong> | Size : <strong><%= @bicycle.size %>cm</strong> | Rating : <strong><%= @bicycle.total_rating %> /5.0</strong></p>
       <p><em><%= @bicycle.description %></em></p>
-      <% if @bicycle.user_id == current_user.id %>
-        <div><%= button_to "Delete this bicycle!", @bicycle, method: :delete,
-        form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'book btn btn-danger' %></div>
-      <% end %>
+      <% if current_user != nil %>
+       <% if @bicycle.user_id == current_user.id %>
+          <div><%= button_to "Delete this bicycle!", @bicycle, method: :delete,
+          form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'book btn btn-danger' %></div>
+       <% end %>
+      <% end %> 
       <div class="comments"></div>
     </div>
     <div class="col-4 sticky-card">
@@ -23,4 +25,3 @@
       </div>
     </div>
   </div>
-</div>

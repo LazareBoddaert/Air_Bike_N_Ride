@@ -1,6 +1,6 @@
 class Bicycle < ApplicationRecord
   belongs_to :user
-  has_many :bookings, dependent: :destroy
+  has_many :bookings
   has_many :reviews, through: :bookings
   has_one_attached :photo
   # validates :photo, presence: true
@@ -12,12 +12,12 @@ class Bicycle < ApplicationRecord
   def total_rating
     d = 0
     reviews.each do |rev|
-      d += rev.rating
+      d += rev.rating.to_f
     end
     if Review.all.length.zero?
       t = 0
     else
-      t = (d/Review.all.length).to_f
+      t = (d/Review.all.length).round(1)
     end
   end
 

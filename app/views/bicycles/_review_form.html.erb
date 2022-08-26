@@ -1,0 +1,24 @@
+<div class='contain'>
+  <h2 class='p-2'>What users think :</h2>
+  <div class='comment border rounded bg bg-white'>
+    <ul class="list-group list-group-flush p-2">
+      <% @bicycle.bookings.each do |book| %>
+        <% book.reviews.each do |review| %>
+          <li class="list-group-item"><strong><%= book.user.username %></strong> : <%= review.content %>,  <%= review.rating %>/5</li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <div class='for'>
+    <% if @bookings.empty? %>
+    <% else  %>
+      <div class="rev border border-dark rounded border-opacity-10 p-2">
+        <%= simple_form_for [@bookings.first, @review] do |f| %>
+          <%= f.input :content, class: "infor" %>
+          <%= f.input :rating, class: "infor" %>
+          <%= f.submit "Submit review", class: "btn" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
