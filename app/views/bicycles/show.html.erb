@@ -1,41 +1,26 @@
-<div class="container">
- <div class='show-bc row'>
-     <div class="col-6 card_bicycle">
-       <h1><%= @bicycle.title %></h1>
-       <% if @bicycle.photo.attached? %>
-         <i class='photos'><%= cl_image_tag @bicycle.photo.key, height: 400, crop: :fill %></i>
-       <% end %>
-       <p>Category : <%= @bicycle.category %></p>
-       <p>Size : <%= @bicycle.size %>cm</p>
-       <p>Price : <%= @bicycle.price_per_day %> €/day</p>
-       <p>Rating : <%= @bicycle.total_rating %> /5.0</p>
-       <p>Description : <%= @bicycle.description %></p>
-       <div class="booking-total col-6">
+<div class="container my-5">
+  <div class="row">
+    <div class="col-8">
+      <% if @bicycle.photo.attached? %>
+        <%= cl_image_tag @bicycle.photo.key, class:"w-100 img-rounded" %>
+      <% end %>
+      <div class="d-flex justify-content-between align-items-center mt-5">
+        <h2> <span class="bold-text"><%= @bicycle.title %></span></h2>
+        <h3> <span class="bold-text"><%= @bicycle.price_per_day %> €</span> /day</h3>
+      </div>
+      <p>Category : <strong> <%= @bicycle.category %> </strong> | Size : <strong><%= @bicycle.size %>cm</strong> | Rating : <strong><%= @bicycle.total_rating %> /5.0</strong></p>
+      <p><em><%= @bicycle.description %></em></p>
+      <% if @bicycle.user_id == current_user.id %>
+        <div><%= button_to "Delete this bicycle!", @bicycle, method: :delete,
+        form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'book btn btn-danger' %></div>
+      <% end %>
+      <div class="comments"></div>
+    </div>
+    <div class="col-4 sticky-card">
+      <div class="p-4 fixed-form-booking">
+        <h3>Rent this bike</h3>
          <%= render "bookings/form" %>
-       </div> 
-     </div>
- </div>
-  <% if @bicycle.user_id == current_user.id %>
-    <div><%= button_to "Delete this bicycle!", @bicycle, method: :delete,
-    form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'book btn btn-danger' %></div>
-  <% end %>
-</div>
-<div class='contain m-5'>
-  <div class='comment m-2'>
-    <% @bicycle.bookings.each do |book| %>
-      <% book.reviews.each do |review| %>
-        <p><%= review.content %> : <%= review.rating %>/5</p>
-      <% end %>
-    <% end %>
-  </div>
-  <div class='for'>
-    <% if @bookings.empty? %>
-    <% else  %>
-      <%= simple_form_for [@bookings.first, @review], html: { class: "border border-dark"} do |f| %>
-        <%= f.input :content %>
-        <%= f.input :rating %>
-        <%= f.submit "Submit review", class: "btn btn-primary" %>
-      <% end %>
-    <% end %>
+      </div>
+    </div>
   </div>
 </div>

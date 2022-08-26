@@ -13,12 +13,16 @@
 }
 
 .card_bicycle {
-  background-color: #3A5A40;
+  background-color: #766f57;
   color: #DAD7CD;
-  #card_bicycle_img img{
-    width: 100%;
-    border-radius: 5px
+    #card_bicycle_img img{
+      width: 100%;
+      border-radius: 5px
+    }
   }
+
+  .photo-show {
+    object-fit: cover;
   }
 
 /* Booking Index Cards */
@@ -75,4 +79,12 @@
 
 .confirmed  {
   background-color: rgba(144, 238, 144, 0.1);
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.img-rounded {
+  border-radius: 10px;
 }

@@ -1,10 +1,4 @@
 .new_booking {
-  background-color: $background-colour-dark;
-  border-radius: $border-radius;
-  color: $title-colour_light;
-  margin-top: 1em;
-  padding: 1em;
-
   .btn {
     border-radius: 5px;
     border-color: $background-colour_green;
@@ -15,6 +9,19 @@
     border-color: $background-colour_main;
     color: whitesmoke;
   }
+}
+
+.sticky-card {
+  position: sticky;
+  top: 0px;
+}
+
+.fixed-form-booking {
+  color: $title-colour_dark;
+  background-color: $background-colour_main;
+  border-radius: 10px;
+  position: sticky;
+  top: 100px;
 }
 
 .booking-total {
